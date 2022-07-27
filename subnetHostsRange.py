@@ -22,7 +22,7 @@ __author__ = 'cyb3rw0lf'
 __credits__ = ['cyb3rw0lf']
 __appName__ = 'subnetHostsRange'
 __license__ = 'MIT'
-__version__ = 'v1.0.1'
+__version__ = 'v1.0.2'
 __appVers__ = '%s v%s' % (__appName__, __version__)
 __status__ = 'Production'
 __maintainer__ = 'cyb3rw0lf'
@@ -65,7 +65,8 @@ def main():
             Subnet = ipaddress.ip_interface(ip).network
             fourthHost = list(Subnet.hosts())[3]
             lastHost = list(Subnet.hosts())[-1]
-            hostsRange = f'{fourthHost}-{lastHost}\n'
+            lastOctet = str(lastHost).split('.')[3]
+            hostsRange = f'{fourthHost}-{lastOctet}\n'
             logging.debug(f'Ranges: {hostsRange}')
             out.write(hostsRange)
 
