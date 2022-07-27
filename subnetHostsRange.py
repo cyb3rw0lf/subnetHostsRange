@@ -65,7 +65,7 @@ def main():
             Subnet = ipaddress.ip_interface(ip).network
             fourthHost = list(Subnet.hosts())[3]
             lastHost = list(Subnet.hosts())[-1]
-            hostsRange = f'{fourthHost} - {lastHost}\n'
+            hostsRange = f'{fourthHost}-{lastHost}\n'
             logging.debug(f'Ranges: {hostsRange}')
             out.write(hostsRange)
 
